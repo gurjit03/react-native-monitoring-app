@@ -13,39 +13,33 @@ import {
   Image
 } from 'react-native';
 
-import StatusScreen from './app/components/status-screen.js';
+import TabBarContainer from './app/components/tab-bar-container.js';
 
-let pic = {
-  uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-};
 export default class myFirstProject extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isUp : false,
+      lastUpTime : new Date(2012,7,4)
+    }
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Hello this is another view</Text>
-        <Image source={pic} style={{width: '100%', height: 110}}/>
-      </View>
+      <TabBarContainer />
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    width: '100%',
+    height: '100%'
+  }
 });
 
 AppRegistry.registerComponent('myFirstProject', () => myFirstProject);
